@@ -16,7 +16,8 @@ A typical workflow would be something like the following.
 
 ### Driftcards identification
 First operation would be to indentify the drifcards from the original images. A script to do this would look like this,
-'
+
+```python
 import numpy as np
 import scipy.io
 import glob
@@ -47,4 +48,4 @@ for filename in files[:]:
  path = 'csv/XY/LASER_'+exp+'_'+filename[-8:-4]+'_XY.csv'
  print path
  IO.writeXY(path,(X,Y))
-'
+```
