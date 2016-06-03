@@ -36,7 +36,7 @@ for filename in files[:]:
  print filename
  frame = plt.imread(filename)
 
- # dirty and cheap way to remove Masco 8 from the frame. It tends to be always on top of the frame.
+ # dirty and cheap way to remove Masco 8 from the frame. It tends to be always in the part top of the frame.
  frame = frame[1000:,:,:] # 1000 for most experiments, 500 for F4.
 
 
