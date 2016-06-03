@@ -1,15 +1,15 @@
 # LASER-driftcards
-Python toolbox to process and analyze data from driftcards deployed during LASER P3. The library containts scripts that allows to work on bamboo plates _identification_, _rectification_ given INS data and _dispersion statistics analysis_.
+This is a python toolbox that allows to process and analyze data from drift cards deployed during LASER Phase 3. The library containts scripts that permits to work on bamboo plates _identification_, _rectification_ and calculation of basic _dispersion statistics_.
 
 The toolbox is organized in two main modules: __XY__ and __INS__
 
 ## XY
-Includes all the subroutines to work on aerostat pictures, convert these into x,y paper plates positions, and perform georectification of the positions.
+Includes all the subroutines needed to work on the aerostat images. Drift cards position can be extracted and converted into x,y positions. These can then be georectified given appropriate INS data.
 
 ## INS
 Includes all the subroutines required to deal with the INS (Internal Navigation System) data. These includes subroutines that allow to extract pitch, roll, heading, altitude and position (lat, lon) of the aerostat for any given picture.
 
-Subroutines to compute Lagrangian statistics are stored into `stats.py` and include to read/write IO a subroutine to compute _cloud dispersion_.
+Subroutines to compute Lagrangian statistics are stored into `stats.py` and include functions for IO and subroutines to compute cloud dispersion.
 
 ## Example
 A typical workflow would be something like the following.
