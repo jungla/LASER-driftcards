@@ -90,18 +90,19 @@ def readDiffGLAD(filename):
  y_drew = np.array(y_drew)*1E5
  return x_drew,y_drew
 
-def cleanTime(exp,t_i,t_f,t_t):
- # d_i, first image (index) with plates in water
- # d_f, # last time (index) valid for dispersion 
-
- if exp == 'F4':
-  d_i = 30
-  d_f = 180
- elif exp == 'F8':
-  d_i = int(np.where(t_t/15 == t_i)[0]) 
-  d_f = int(np.where(t_t/15 == t_f)[0]) 
- elif exp == 'F10':
-  d_i = int(np.where(t_t/15 == t_i)[0]) 
-  d_f = int(np.where(t_t/15 == t_f)[0]) 
-
- return d_i,d_f
+# moved to time.py
+#def cleanTime(exp,t_i,t_f,t_t):
+# # d_i, first image (index) with plates in water
+# # d_f, # last time (index) valid for dispersion 
+#
+# if exp == 'F4':
+#  d_i = 30
+#  d_f = 180
+# elif exp == 'F8':
+#  d_i = int(np.where(t_t/15 == t_i)[0]) 
+#  d_f = int(np.where(t_t/15 == t_f)[0]) 
+# elif exp == 'F10':
+#  d_i = int(np.where(t_t/15 == t_i)[0]) 
+#  d_f = int(np.where(t_t/15 == t_f)[0]) 
+#
+# return d_i,d_f

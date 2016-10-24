@@ -136,3 +136,41 @@ def comp_ang_XY(foclen,PixDim,X,Y):
  angy = ay2.T
 
  return angx, angy
+
+
+'''
+lens correction subs
+'''
+
+import lensfunpy
+
+def lens_correction(X,Y,focal_length, aperture, distance, mod):
+ mod.initialize(focal_length, aperture, distance)
+ undist_coords = mod.apply_geometry_distortion()
+
+ Xl = []
+ Yl = []
+
+ for p in range(len(X)):
+  Xl.append(undist_coords[Y[p],X[p],:][0])
+  Yl.append(undist_coords[Y[p],X[p],:][1])
+
+ return np.asarray(Xl),np.asarray(Yl)
+
+def lens_correction_init(nx,ny):
+ cam_maker = 'CANON'
+ cam_model = 'CANON EOS 5D'
+ lens_maker = 'Canon'
+ lens_model = 'Canon EF 17-40mm f/4L USM'
+
+ db = lensfunpy.Database()
+ cam = db.find_cameras(cam_maker, cam_model)[0]
+ lens = db.find_lenses(cam, lens_maker, lens_model)[0]
+
+ focal_length = 17.0
+ aperture = 1.4
+
+ mod = lensfunpy.Modifier(lens, cam.crop_factor, nx, ny)
+
+ return mod, focal_length, aperture
+

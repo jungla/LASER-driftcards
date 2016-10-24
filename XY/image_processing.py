@@ -22,7 +22,6 @@ def tiling(frame,delta):
  Xm,Ym = np.meshgrid(range(frame_t.shape[1]),range(frame_t.shape[0]))
  return Xm,Ym,frame_t
 
-
 def masking(mask,delta_s):
  size = mask.shape
  X,Y = np.meshgrid(range(size[1]),range(size[0]))

@@ -19,12 +19,13 @@ def readXY(filename):
 
  return np.asarray(X),np.asarray(Y)
 
-def readXY_INS(filename):
- # read INS data for XY positions in filename
- f = open(filename,'rb')
- INS = f.readline().split(',')
- f.close()
- return INS
+# moved to INS
+#def readXY_INS(filename):
+# # read INS data for XY positions in filename
+# f = open(filename,'rb')
+# INS = f.readline().split(',')
+# f.close()
+# return INS
 
 def writeXY(filename,(X,Y)):
  f = open(filename,'wb')

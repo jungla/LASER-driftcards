@@ -1,5 +1,5 @@
 import numpy as np
-import driftcardslib.INS.time as INStime
+#import driftcardslib.time as dctime
 
 # GPSINS(1) - Latitude (Decimal Degrees)
 # GPSINS(2) - Longitude (Decimal Degrees)
@@ -9,7 +9,7 @@ import driftcardslib.INS.time as INStime
 # GPSINS(6) - Heading (degrees)
 # GPSINS(7) - GPS millisecond of the week
 
-def read_INS(exp,field):
+def read_INS_field(exp,field):
  out = []
 
  if not (field in ['lat','lon','pitch','roll','heading','alt','time']): 
@@ -52,6 +52,12 @@ def read_INS_all(filename):
 
  return np.asarray(out)
 
+def read_INS_frame(filename):
+ # read INS data for XY positions in filename
+ f = open(filename,'rb')
+ INS = f.readline().split(',')
+ f.close()
+ return INS
 
 def write_INS_frame(INS_all,time_INS,time_frame,filename):
  INS_frame = INS_all[np.where(time_INS >= time_frame)[0][0],:]
